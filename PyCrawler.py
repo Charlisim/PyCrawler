@@ -41,7 +41,12 @@ def crawl():
 		if not url.startswith('http'):
 			logger.warning("Unfollowable link found at %s " % url)
 			continue
-
+		if url.endswith('pdf'):
+			logger.warning('URL %s PDF document - Not log' % url)
+			continue
+		if not url.startswith('http://boe.es/diario_boe/txt.php?'):
+			logger.warning('Not interested in that')
+			continue
 		if cdb.checkCrawled(url):
 			continue
 		if url is False:
