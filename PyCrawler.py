@@ -44,7 +44,7 @@ def crawl():
 		if url.endswith('pdf'):
 			logger.warning('URL %s PDF document - Not log' % url)
 			continue
-		if not url.startswith('http://boe.es/diario_boe/txt.php?'):
+		if not url.startswith('http://www.boe.es/diario_boe/txt.php?'):
 			logger.warning('Not interested in that')
 			continue
 		if cdb.checkCrawled(url):
